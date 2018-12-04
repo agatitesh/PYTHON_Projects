@@ -1,0 +1,116 @@
+from random import randint
+
+class banking:
+
+    acc = {}
+
+    def cacc(self):
+        print(" !! WELCOME TO OUR BANK  !! ")
+        print("Enter Your Name:")
+        self.name=str(input())
+        print("Initial Amount Deposit")
+        self.amt=int(input())
+        self.accnum=randint(10001,99999)
+        print("Kindly Save Your Following Details ")
+        print("Name: ",self.name)
+        print("Account Number :",self.accnum)
+        banking.acc[self.accnum]=[self.name,self.amt]
+
+    def login(self):
+        print("Enter Your Account Number:")
+        self.ac=int(input())
+
+        if  banking.acc.get(self.ac) !=  None :
+
+            return True                                                             #self.ac in self.banking.acc
+
+                                                                     # print("Enter Your Name:")
+                                                                    # self.acname = str(input())
+                                                                        # if  banking.acc.get()==  True:      #self.acname in  banking.acc.values()
+
+
+
+    def withdraw (self):
+                print("Enter Amount to Withdraw")
+                self.debit=int(input())
+                if  self.debit <= self.amt :
+                 self.amt=self.amt - self.debit
+                 print("Your Current Account balance  is : ", self.amt)
+
+                else: print("Insufficient Balance")
+    def deposite(self):
+                  print("Enter the amount to be Deposit")
+                  self.damt=int(input())
+                  self.amt=self.amt + self.damt
+                  print("Your Current Account balance  is : " ,self.amt)
+
+    def dispdetails(self):
+                  print("Your Name  is : ", self.name)
+                  print("Your  Account Number  is : ", self.accnum)
+                  print("Your Current Account balance  is : ", self.amt)
+
+          # else:
+          #   print("Your Login Name Details are Wrong")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+cust=banking()
+while True :
+ print("Welcome To OUR Bank")
+ print("You want to Create new Account or Access Exiating one ")
+ print( "Press 1:New Account ")
+ print( "Press 2:Access Existing Account")
+ print("Press 3 : Quit Banking")
+ inp = int(input())
+ if inp==1:
+    cust.cacc()
+ if inp==2:
+   if (cust.login()) :
+    print("Welcome To Online Banking Services")
+    print("You have sucessfully Loged in ")
+    while True:
+     print("What You Want To do")
+     print("Press 1: Withdraw")
+     print("Press 2: Deposite")
+     print("Press 3: Account Details")
+     print("Press 4: Logout")
+     trans = int(input())
+
+     if trans == 1:
+             cust.withdraw()
+
+
+     if trans == 2:
+                cust.deposite()
+
+     if trans == 3:
+              cust.dispdetails()
+
+     if trans == 4:
+         break
+
+
+ if inp == 3:
+        break
+
+
+
+
