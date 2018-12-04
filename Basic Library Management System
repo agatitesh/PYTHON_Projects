@@ -1,0 +1,37 @@
+class lib:
+    cbook=[]
+    bbooks=[]
+    def __init__(self,name):
+        self.name=name
+        lib.cbook.append(name)
+    #
+    # def addBook(self,addbookname):
+    #     self.addbookname=addbookname
+    #     lib.cbook.append(self.addbookname)
+
+    def borrowBook(self,bname):
+        self.bname=bname
+        if self.bname in lib.cbook:
+         lib.bbooks.append(lib.cbook[lib.cbook.index(self.bname)])
+         del lib.cbook[lib.cbook.index(self.bname)]
+        else:
+            print("Book is Not Available")
+
+    def retBook(self,rname):
+         self.rname=rname
+         if (self.rname in lib.bbooks) and (len(lib.bbooks) > 0):
+           lib.cbook.append(self.rname)
+           del lib.bbooks[lib.bbooks.index(self.rname)]
+         else:
+           print("you havent Borrowed this book")
+
+    def dislayBooks(self):
+        for i in lib.cbook :
+         print(i)
+
+
+
+
+
+
+
